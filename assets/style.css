@@ -98,7 +98,7 @@
     font-weight: 400;
 }
 i.fa.fa-chevron-left,i.fa.fa-chevron-right {
-    color: #ff0000;
+    color: #fda806ad;
 }
 
 
@@ -396,3 +396,252 @@ height: 100%;
               margin-top: 5px;
             }
           }
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+:root {
+  --red: rgb(169 0 0);
+  --grey: rgb(5 1 10);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*Nav Styles start here*/
+
+header {
+  background: var(--grey);
+  text-align: center;
+  position: relative;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo {
+  margin: .1em;
+  color: white;
+}
+
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-hamburger {
+  outline: 1px solid var(--red);
+  opacity: .75;
+}
+
+.nav-hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-hamburger span,
+.nav-hamburger span::before,
+.nav-hamburger span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-hamburger span::before,
+.nav-hamburger span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-hamburger span::before {
+  bottom: 7px;
+}
+
+.nav-hamburger span::after {
+  top: 7px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: var(--grey);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: var(--red);
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/*Main body styles starts here*/
+
+.content {
+  height: 200vh;
+  background-image: url(//unsplash.it/1000/1000);
+  background-color: #939393;
+  background-blend-mode: multiply;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+
+/* Media Query for bigger screens*/
+@media screen and (min-width: 800px) {
+  .nav-hamburger {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 4fr) 1fr;
+  }
+
+  .logo {
+    grid-column: 2 / 3;
+  }
+
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-top: .5em;
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: var(--red);
+    position: absolute;
+    top: -.25em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+    border-radius: 4px;
+  }
+  
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+  
+/* Preloader */
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Black background with 50% opacity */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: red;
+    animation: PreloaderSpin 2s linear infinite;
+}
+
+#loader:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: white;
+    animation: PreloaderSpin 6s linear infinite;
+}
+
+#loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin: 10px 0 0 22px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: yellow;
+    animation: PreloaderSpin 3s linear infinite;
+}
+
+@keyframes PreloaderSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
