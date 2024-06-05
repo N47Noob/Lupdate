@@ -644,35 +644,6 @@ nav a:hover {
         transform: rotate(360deg);
     }
 }
-#navbar-iframe  {
-display : none;
-height : 0;
-visibility : hidden;
-}
-#noAccess h1 {
-            display: none;
-        }
-  /* Pop-Up Box (Style 1) by Fineshop */
-.popSc{position:fixed;z-index:99981;top:0;bottom:0;left:0;right:0;padding:20px;background:#f3f5fe;display:flex;justify-content:center;align-items:center}
-.popSc.hidden{display:none}
-.popSc .popBo{position:relative;background:#fff;max-width:400px;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:30px;border-radius:30px}
-.popSc .popBo svg{display:block;width:50px;height:50px;fill:none !important;stroke:#08102b;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
-.popSc .popBo h2{margin:10px 0 15px 0;font-size:1.2rem;font-weight:800;color:#08102b}
-.popSc .popBo p{margin:0;line-height:1.7em;font-size:0.9rem;color:#08102b}
-.popSc .popBo .popBtn{display:inline-flex;justify-content:center;align-items:center;height:50px;width:50px;outline:none;border:none;background:#f3f5fe;border-radius:50%;margin-top:20px;transition:all .2s ease;-webkit-transition:all .2s ease}
-.popSc .popBo .popBtn:hover{transform:scale(1.05);-webkit-transform:scale(1.05)}
-.popSc .popBo .popBtn svg{width:24px;height:24px;flex-shrink:0;opacity:.8}
-.popSc .popBo .popBtn svg.r{animation:rotateIcn 1.5s infinite linear;-webkit-animation:rotateIcn 1.5s infinite linear}
-.darkMode .popSc, .darkMode .popSc .popBo .popBtn{background:#1f1f1f}
-.darkMode .popSc .popBo{background:#2c2d31}
-.darkMode .popSc .popBo svg{stroke:#fefefe}
-.darkMode .popSc .popBo p, .darkMode .popSc .popBo  h2{color:#fefefe}
-@keyframes rotateIcn{from{transform:rotate(0deg)} to{transform:rotate(359deg)}}
-@-webkit-keyframes rotateIcn{from{-webkit-transform:rotate(0deg)} to{-webkit-transform:rotate(359deg)}}
-  .marquee-container {
-      width: 100%;
-      overflow: hidden;
-    }
 
     .notice-movies1 {
     margin-right: 10%;
@@ -713,3 +684,45 @@ visibility : hidden;
       left: 0;
       top: 0;
     }
+ /* Media query for mobile devices */
+@media only screen and (max-width: 800px) {
+    .notice-movies1 {
+    background: #010838;
+    color: white;
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+        margin-right: 5%;
+        margin-left: 5%;
+        font-size: 13px;
+    }
+
+    .notice-movies1::before {
+        position: absolute;
+      border-left: 17px solid #000;
+      border-bottom: 17px solid #000;
+      border-top: 17px solid transparent;
+      border-right: 17px solid transparent;
+      left: 98px;
+      top: 0;
+      z-index: 1;
+    }
+
+    .notice-movies1::after {
+        content: 'Notice:';
+      position: absolute;
+      height: 100%;
+      padding: 0 10px;
+      line-height: 48px;
+      background: #bd0000;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-weight: 600;
+      left: 0;
+      top: 0;
+    }
+} 
