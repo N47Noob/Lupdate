@@ -11,7 +11,7 @@ function redirect(url, delay) {
 redirect("https://example.com", 50); // 5000 milliseconds = 5 seconds
 */
 
-const githubUrl = 'https://rawcdn.githack.com/noobromon/live.notice/5208b24564e0003ce94b3bc0337f95623dd7830a/notice.txt';
+const githubUrl = 'https://rawcdn.githack.com/noobromon/live.notice/d6e81cea7316340cbdca219e6baeb2b7ecbeb1ee/notice.txt';
     const marqueeElement = document.getElementById('githubMarquee');
 
     fetch(githubUrl)
